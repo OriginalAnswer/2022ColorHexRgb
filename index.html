@@ -32,7 +32,7 @@
             list-style: none;
             text-decoration: none;}
         .hidden{display: none;}
-        html,body{width: 100%;height: 100%;}
+        html,body{width: 100%;height: 100%;overflow: hidden;}
 
         /* +++++++++++++++ */
         #bg{
@@ -126,10 +126,10 @@
             backdrop-filter: blur(15px);
             background-color: var(--bgclr);
             position: relative;
-            padding: 25px 5px 20px 5px;}
+            padding: 50px 1px 35px 1px;}
         .bgc::after,
         .bgc::before{
-            border: 1px solid #f8eeee3d;
+            border: 1px solid #f8eeee18;
             content: "";
             position: absolute;
             backdrop-filter: blur(10px);
@@ -137,6 +137,7 @@
             top: 0;left: 0;
             width: 100%;height: 100%;
             z-index: -1;
+            box-shadow: 5px 5px 20px #ffffff17,-5px -5px 20px #00000013;
         }
         .s1{
             width: 220px;height: 220px;
@@ -153,10 +154,10 @@
         }
 
         input[type='color']::-webkit-color-swatch{
-            border-radius: 50%;border:none;}
+            border-radius: 30px;border:none;}
         input[type='color'] { 
-            width: 60px;
-            height: 60px;
+            width: 45px;
+            height: 45px;
             margin: 7px 0;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -184,7 +185,7 @@
 
             <section class="s2" id="s2">
                 <div class="ctrl">
-                    <input onchange="clr()" value="#ffb69e" type="color" name="color1" id="color1" class="c1">
+                    <input onchange="clr()" value="#ff5252" type="color" name="color1" id="color1" class="c1">
                 </div>
                 
                 <div class="cc" id="color-code" onclick="copy()">Hey.</div>
