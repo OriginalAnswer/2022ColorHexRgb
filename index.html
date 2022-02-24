@@ -10,7 +10,9 @@
     <style>
         
         :root{
-            --c1:#ebebeb;
+            --bgclr:rgba(255, 255, 255, 0.3);
+            --bgclrNone:rgba(255, 255, 255, 0);
+            --c1:#fffffff8;
             --bottom: 60%;
             --position: absolute;
             --tr-y: translateY(-30%);
@@ -19,7 +21,7 @@
         }
        /* +++++++++++++++ */
         *{
-            background-color: #fff;
+            background-color: var(--bgclr);
             font-family: 'Montserrat';
             padding: 0;
             margin: 0;
@@ -36,6 +38,52 @@
         #bg{
             background-color : var(--c1);
             width: 100%;height: 100%;}
+        .bgc1{
+            z-index: -5;
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            background-color: rgb(22, 22, 255);
+            position: absolute;
+            top: -50%;left: -90%;
+        }
+        .bgc2{
+            z-index: -4;
+            border-radius: 50%;
+            content: "";
+            width: 300px;
+            height: 300px;
+            background-color: rgb(255, 22, 22);
+            position: absolute;
+            top: -20%;right: -60%;
+        }
+        .bgc3{
+            z-index: -4;
+            border-radius: 50%;
+            content: "";
+            width: 250px;
+            height: 500px;
+            transform: rotate(40deg);
+            background-color: rgb(255, 146, 22);
+            position: absolute;
+            bottom: -50%;left: -50%;
+        }
+        .bgc4{
+            z-index: -4;
+            border-radius: 50%;
+            content: "";
+            width: 200px;
+            height: 300px;
+            transform: rotate(-50deg);
+            background-color: rgb(228, 255, 22);
+            position: absolute;
+            bottom: -20%;right: -50%;
+        }
+        .bgc{
+            position: absolute;
+            left: 0;top: 0;
+            width: 100%;height: 100%;}
+        
 
         #bg,
         .container,
@@ -45,12 +93,22 @@
         .ctrl{
             display: flex;align-items: center;justify-content: center;flex-direction: column;
         }
-
-        .container,
         .s1,
         .s2,
+        .cc,
+        .ctrl,
+        .c1{
+            background-color: var(--bgclrNone);
+        }
+
+        .container,
+        .bgc,
         .cc{
             border-radius: 40px;
+        }
+        .s1,
+        .s2{
+            border-radius: 50%;
         }
 
         input[type='color'],
@@ -61,11 +119,11 @@
 
         
         .container{
-            position: relative;
+            backdrop-filter: blur(15px);
+            /* position: relative; */
             padding: 10px;}
-
+    
         .s1{
-            background-color : var(--c1);
             width: 250px;height: 250px;padding: 10px;
         }
         /* ++++++++++++++++++++++++++++++++++++ */
@@ -78,10 +136,10 @@
             width: 100%;}
 
         input[type='color']::-webkit-color-swatch{
-            border-radius: 20px;border:none;}
+            border-radius: 50%;border:none;}
         input[type='color'] { 
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             margin: 5px 0;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -96,8 +154,14 @@
 <body>
     </label>
     <main id="bg">
-
+        
         <section class="container" id="container">
+            <div class="bgc">
+                <div class="bgc1"></div>
+                <div class="bgc2"></div>
+                <div class="bgc3"></div>
+                <div class="bgc4"></div>
+            </div>
         
             <section class="s1" id="dp"></section>
 
