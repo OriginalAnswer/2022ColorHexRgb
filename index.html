@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
+    <title>HEX RGB Convertor 2022</title>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> -->
+    <style>
+        
+        :root{
+            --c1:#ebebeb;
+            --bottom: 60%;
+            --position: absolute;
+            --tr-y: translateY(-30%);
+            --timing: 0.7s ease;
+            --timing2: 1s ease;
+        }
+       /* +++++++++++++++ */
+        *{
+            background-color: #fff;
+            font-family: 'Montserrat';
+            padding: 0;
+            margin: 0;
+            outline: 0;
+            text-align: center;
+            border: 0;
+            box-sizing: border-box; 
+            list-style: none;
+            text-decoration: none;}
+        .hidden{display: none;}
+        html,body{width: 100%;height: 100%;}
+
+        /* +++++++++++++++ */
+        #bg{
+            background-color : var(--c1);
+            width: 100%;height: 100%;}
+
+        #bg,
+        .container,
+        .s1,
+        .s1 div,
+        .s2,
+        .ctrl{
+            display: flex;align-items: center;justify-content: center;flex-direction: column;
+        }
+
+        .container,
+        .s1,
+        .s2,
+        .cc{
+            border-radius: 40px;
+        }
+
+        input[type='color'],
+        .cc{
+            cursor: pointer;
+        }
+
+
+        
+        .container{
+            position: relative;
+            padding: 10px;}
+
+        .s1{
+            background-color : var(--c1);
+            width: 250px;height: 250px;padding: 10px;
+        }
+        /* ++++++++++++++++++++++++++++++++++++ */
+        .s2{
+            bottom: var(--bottom);
+            transition: bottom var(--timing);
+            width: 270px;padding-top: 15px;}
+
+        .s2 .ctrl{
+            width: 100%;}
+
+        input[type='color']::-webkit-color-swatch{
+            border-radius: 20px;border:none;}
+        input[type='color'] { 
+            width: 70px;
+            height: 70px;
+            margin: 5px 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;}
+
+        .s2 .cc{
+            width: 100%;
+            padding: 20px 10px;
+            font-size: 1rem;}
+    </style>
+</head>
+<body>
+    </label>
+    <main id="bg">
+
+        <section class="container" id="container">
+        
+            <section class="s1" id="dp"></section>
+
+            <section class="s2" id="s2">
+                <div class="ctrl">
+                    <input onchange="clr()" value="#ffb69e" type="color" name="color1" id="color1" class="c1">
+                </div>
+                
+                <div class="cc" id="color-code" onclick="copy()">Hey.</div>
+                <div class="cc" id="color-code2" onclick="copy()">Hey.</div>
+            </section>
+        
+        </section>
+
+    </main>
+    
+    <script type="text/javascript">
+        const bg = document.getElementById("bg");
+        const cc1 = document.getElementById("color-code");
+        const cc2 = document.getElementById("color-code2");
+        const container = document.getElementById("container");
+        const dp = document.getElementById("dp");
+        
+        
+        function clr(){
+            let clr = document.getElementById('color1').value;            // bg.style.backgroundColor = clr;
+            dp.style.backgroundColor = clr;
+            console.log(clr);
+
+            cc1.style.fontWeight = 'bold';
+            cc1.innerHTML = clr;
+
+            clr = clr.slice(1,9);
+            console.log(clr);
+            const hexR = clr[0]+clr[1];
+            const hexG = clr[2]+clr[3];
+            const hexB = clr[4]+clr[5];
+            const r = parseInt(hexR,16);
+            const g = parseInt(hexG,16);
+            const b = parseInt(hexB,16);
+
+            console.log(r);
+            console.log(g);
+            console.log(b);
+
+            cc2.innerHTML = `rgb(${r}, ${g}, ${b})`;
+            cc2.style.fontWeight = 'bold';
+            }
+        
+        function copy(){
+            navigator.clipboard.writeText(cc.innerText).then(function(){alert( cc.innerText + " is copied!")});
+        }
+        clr();
+    </script>
+    
+</body>
+</html>
