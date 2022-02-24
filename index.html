@@ -10,7 +10,7 @@
     <style>
         
         :root{
-            --bgclr:rgba(255, 255, 255, 0.3);
+            --bgclr:rgba(255, 255, 255, 0.5);
             --bgclrNone:rgba(255, 255, 255, 0);
             --c1:#fffffff8;
             --bottom: 60%;
@@ -21,7 +21,7 @@
         }
        /* +++++++++++++++ */
         *{
-            background-color: var(--bgclr);
+            background-color: var(--bgclrNone);
             font-family: 'Montserrat';
             padding: 0;
             margin: 0;
@@ -39,7 +39,7 @@
             background-color : var(--c1);
             width: 100%;height: 100%;}
         .bgc1{
-            z-index: -5;
+            z-index: -4;
             border-radius: 50%;
             width: 400px;
             height: 400px;
@@ -55,7 +55,7 @@
             height: 300px;
             background-color: rgb(255, 22, 22);
             position: absolute;
-            top: -20%;right: -60%;
+            top: -10%;right: -60%;
         }
         .bgc3{
             z-index: -4;
@@ -66,7 +66,7 @@
             transform: rotate(40deg);
             background-color: rgb(255, 146, 22);
             position: absolute;
-            bottom: -50%;left: -50%;
+            bottom: -50%;left: -60%;
         }
         .bgc4{
             z-index: -4;
@@ -77,9 +77,10 @@
             transform: rotate(-50deg);
             background-color: rgb(228, 255, 22);
             position: absolute;
-            bottom: -20%;right: -50%;
+            bottom: -30%;right: -40%;
         }
         .bgc{
+            z-index: -1;
             position: absolute;
             left: 0;top: 0;
             width: 100%;height: 100%;}
@@ -103,6 +104,8 @@
 
         .container,
         .bgc,
+        .bgc::after,
+        .bgc::before,
         .cc{
             border-radius: 40px;
         }
@@ -119,10 +122,22 @@
 
         
         .container{
+            z-index: 0;
             backdrop-filter: blur(15px);
-            /* position: relative; */
+            background-color: var(--bgclr);
+            position: relative;
             padding: 10px;}
-    
+        .bgc::after,
+        .bgc::before{
+            border: 1px solid #d1c4c435;
+            content: "";
+            position: absolute;
+            backdrop-filter: blur(10px);
+            background-color: var(--bgclrNone);
+            top: 0;left: 0;
+            width: 100%;height: 100%;
+            z-index: -1;
+        }
         .s1{
             width: 250px;height: 250px;padding: 10px;
         }
